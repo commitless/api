@@ -19,14 +19,21 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(compression());
 
 app.get('/projects', (req, res) => {
-  Project.find({}, (err, projects) => {
+  Project.find({}).select('_id name user description').exec((err, projects) => {
     return res.json(projects);
+  });
+});
+
+app.get('/projects/:id', (req, res) => {
+  Project.findById(req.params.id).select('name user html css js').exec((err, project) => {
+    return res.json(project);
   });
 });
 
 app.post('/projects', (req, res) => {
   let p = new Project({
     name: req.body.name,
+    description: req.body.description,
     user: 'test',
     html: '<h1>Hello World</h1>',
     js: 'function e() { }',
