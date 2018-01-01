@@ -2,6 +2,7 @@ const express = require('express'),
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
     compression = require('compression'),
+    cors = require('cors'),
 
     Project = require('./models/project'),
     User = require('./models/user'),
@@ -17,6 +18,7 @@ var app = express();
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(compression());
+app.use(cors());
 
 app.get('/projects', (req, res) => {
   Project.find({}).select('_id name user description').exec((err, projects) => {
