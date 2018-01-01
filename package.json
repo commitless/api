@@ -1,0 +1,26 @@
+{
+  "name": "commitless-api",
+  "version": "1.0.0",
+  "description": "Direct data access for Sapper/Svelte framework frontend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/commitless/api.git"
+  },
+  "author": "Nick Doiron <ndoiron@mapmeld.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/commitless/api/issues"
+  },
+  "homepage": "https://github.com/commitless/api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "compression": "^1.7.1",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.6"
+  }
+}
