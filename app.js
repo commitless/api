@@ -3,6 +3,7 @@ const express = require('express'),
     bodyParser = require('body-parser'),
     compression = require('compression'),
     cors = require('cors'),
+    helmet = require('helmet'),
 
     Project = require('./models/project'),
     User = require('./models/user'),
@@ -15,6 +16,7 @@ mongoose.connect(db_uri);
 
 var app = express();
 
+app.use(helmet());
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(compression());
